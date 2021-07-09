@@ -1,0 +1,58 @@
+.habit {
+    color: white;
+    text-align: center;
+    margin-top: 3vh;
+    padding: 3%;
+    line-height: 1;
+}
+
+.habitContentIncomplete {
+    background: radial-gradient(
+    ellipse at center,
+    rgb(153, 210, 20) 0%,
+    rgba(153, 210, 20) 70%,
+    rgba(210, 20, 20, 0) 70.3%
+  );
+}
+
+.habitContentComplete {
+    background: radial-gradient(
+    ellipse at center,
+    rgb(104, 208, 159) 0%,
+    rgba(104, 208, 159) 70%,
+    rgba(210, 20, 20, 0) 70.3%
+  );
+}
+
+.habitContent {
+    /* border-radius: 50%;
+    background-color: #2F4D3D; */
+
+  height: 100%;
+  width: 100%;
+  color: white;
+  position: relative;
+  margin: 0;
+  font-size: 2.2vw;
+  font-style: italic;
+  height: 100%;
+  padding: 0;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3);
+}
+.habitContent h5 {
+    padding-top: 5vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    word-break: break-all;
+    font-size: 3vw;
+}
+.habitContent p {
+    margin-bottom: 5px;
+}
+
+.habitWrapper {
+    height: 25vw;
+    position: relative;
+    width: 25vw;
+  }

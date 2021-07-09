@@ -1,0 +1,65 @@
+
+
+.footer {
+left:0;
+bottom:0px;
+right:0;
+}
+
+.timeWrapper {
+    padding-top: 1vh;
+}
+.clockColour {
+    background-color: #96DFB7;
+    border-top-left-radius: 80px;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
+}
+.time {
+color: #ffffff;
+}
+
+.date {
+color: #f2f1f1;
+}
+
+.addHabit {
+    font-size: xx-large;
+    text-align: right;
+}
+
+.addHabitButton {
+    color: white;
+    height: 20vw;
+    width: 20vw;
+    border-top-left-radius: 57px;
+    border-bottom-left-radius: 57px;
+    border: 0px;
+    background-color: #909090;
+
+}
+.addHabitButton:hover {
+    background-color: #777777;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+.addHabitButton:active {
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    background-color: #aaa9a9;
+}
+
+.closeHabitButton {
+    height: 20vw;
+    width: 20vw;
+    border-top-left-radius: 57px;
+    border-bottom-left-radius: 57px;
+    border: 0px;
+    background-color: #FFA8A8;
+}
+.closeHabitButton:hover {
+    background-color: #ffc5c5;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+.closeHabitButton:active {
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    background-color: #ff9393;
+}

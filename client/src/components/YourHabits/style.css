@@ -1,0 +1,10 @@
+.titleYourHabits {
+    color: #909090;
+    font-weight: bold;
+}
+
+.mainCard {
+    text-align: left;
+    padding-left: 5%;
+    min-height: 40vh;
+}

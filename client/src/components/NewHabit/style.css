@@ -1,0 +1,11 @@
+.subtitle {
+    color: #2F4D3D;
+}
+
+.buttonAdd {
+   color: #ffffff;
+    border-radius: 10%;
+    border: 0px;
+    background-color: #2F4D3D;
+    padding: 1%;
+}
