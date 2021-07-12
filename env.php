@@ -1,3 +1,3 @@
 DBuser = 
-DBpass = 6
+DBpass = 2345
 DBname = 
