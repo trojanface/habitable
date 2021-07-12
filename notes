@@ -1,0 +1,46 @@
+Database Design
+
+
+Users
+    userid auto_increment primary key
+    username varchar(30) not null
+    password varchar(30) not null
+    email   varchar(50) not null
+    firstname   varchar(30) not null
+    lastname varchar(30) not null
+    dob varchar(30) not null
+    datejoined varchar(30) not null
+    lastlogin varchar(30) not null
+    apikey varchar(50) not null
+
+
+Habits
+    habitid auto_increment primary key
+    userid 
+    name varchar(30) not null
+    effect varchar(30) not null
+    authentication varchar(30) not null
+    lastcompleted varchar(30) not null
+    longeststreak varchar(30) not null
+    currentstreak varchar(30) not null
+
+Condition_Time
+    conditiontimeid
+    habitid
+    between_at
+    firsttime
+    secondtime
+    sunday
+    monday
+    tuesday
+    wednesday
+    thursday
+    friday
+    saturday
+    andor
+
+Condition_Location
+    conditionlocationid
+    habitid
+    longeststreaklat
+    radius
