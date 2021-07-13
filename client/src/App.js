@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer';
 import YourHabits from './components/YourHabits/YourHabits';
 import NewHabit from './components/NewHabit/NewHabit';
 import { del, get, set, entries } from 'idb-keyval';
+import Login from './pages/Login/Login';
+
 export const ContentContext = React.createContext();
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
 
   
 
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(2);
   const [editObj, setEditObj] = useState({});
 
   var content = <YourHabits />;
@@ -22,9 +24,8 @@ function App() {
       content = <YourHabits />;
   } else if (page === 1){
     content = <NewHabit editObj={editObj}/>;
-    console.log(editObj)
   } else if (page === 2){
-
+    content = <Login />
   } 
 
   let setNewContext = (value, object) => {
@@ -39,9 +40,15 @@ function App() {
   return (
     <ContentContext.Provider value={{setNewContext, setDB, getDB, delDB}}>
     <div className="App">
+      {page === 2 ?
+      content
+      :
+      <>
         <MenuBar />
         {content}
         <Footer props={page}/>
+      </>
+    }
     </div>
     </ContentContext.Provider>
   );
