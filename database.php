@@ -1,26 +1,10 @@
 <?php
-function updateUser(mysqli $conn, string $username, string $passcode, string $email, string $firstname, string $lastname, int $dob, int $lastlogin, string $api) {
-    $sql = "INSERT INTO 
-    Users (username, passcode, email, firstname, lastname, dob, lastlogin, apikey) 
-    VALUES ('Test', 'test123', 'Testing@tesing.com', 'Jane', 'Doe', 12/12/12, 12/12/12, '12')";
-    if ($conn->query($sql) === TRUE) {
-        echo "Users updated successfully";
-      } else {
-        echo "Error updating table: " . $conn->error;
-      }
-}
-echo "DB Username ";
-$username = chop(fgets(STDIN));
-echo "DB Password ";
-$password = chop(fgets(STDIN));
+include "autoload.php";
+include "users.php";
 
-$dbname = "habitable";
-$servername="localhost";
-
-echo "Welcome $username connecting to $dbname. \n"; 
-
+updateUser("JDoe", "test", "jane@doe.com.au", "Jane", "Doe", "14");
 //Create COnnection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli(env('servername'), env('username'), env('password'), env('dbname'));
 //check Connection
 if ($conn->connect_error) {
     die("connection failed: " . $conn->connect_error);
@@ -43,9 +27,6 @@ else
         email VARCHAR(50),
         firstname VARCHAR(30) NOT NULL,
         lastname VARCHAR(30) NOT NULL,
-        dob DATE NOT NULL,
-        datejoined TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        lastlogin TIMESTAMP,
         apikey VARCHAR(50) NOT NULL
         )";
         
