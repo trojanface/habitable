@@ -8,7 +8,7 @@ import YourHabits from './components/YourHabits/YourHabits';
 import NewHabit from './components/NewHabit/NewHabit';
 import { del, get, set, entries } from 'idb-keyval';
 import Login from './pages/Login/Login';
-
+import Signup from './pages/Signup/Signup';
 export const ContentContext = React.createContext();
 
 function App() {
@@ -26,6 +26,8 @@ function App() {
     content = <NewHabit editObj={editObj}/>;
   } else if (page === 2){
     content = <Login />
+  } else if (page === 3){
+    content = <Signup />
   } 
 
   let setNewContext = (value, object) => {
@@ -40,7 +42,7 @@ function App() {
   return (
     <ContentContext.Provider value={{setNewContext, setDB, getDB, delDB}}>
     <div className="App">
-      {page === 2 ?
+      {page === 2 || page === 3 ?
       content
       :
       <>
