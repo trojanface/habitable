@@ -1,41 +1,30 @@
 <?php
+// Include the main Propel script
+require_once './vendor/propel/runtime/lib/Propel.php';
+
+// Initialize Propel with the runtime configuration
+Propel::init("./build/conf/habitable-conf.php");
+
+// Add the generated 'classes' directory to the include path
+set_include_path("./build/classes" . PATH_SEPARATOR . get_include_path());
+
 include "autoload.php";
 include "users.php";
+echo(date('d-m-y', strtotime('11-12-21')));
+$user = new Users();
+$user->setUsername('testUser');
+$user->setPassword('test');
+$user->setEmail('test@test.com');
+$user->setFirstname('Test');
+$user->setLastname('Testman');
+$user->setDob(date('d-m-y', strtotime('11-12-21')));
+$user->setDatejoined(date('d-m-y', strtotime('11-12-21')));
+$user->setLastlogin(date('d-m-y', strtotime('11-12-21')));
+$user->setApikey('apiyay');
+$user->save();
 
-updateUser("JDoe", "test", "jane@doe.com.au", "Jane", "Doe", "14");
-//Create COnnection
-$conn = new mysqli(env('servername'), env('username'), env('password'), env('dbname'));
-//check Connection
-if ($conn->connect_error) {
-    die("connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully. \n";
+echo $user->getUsername();
 
-$val =  $conn->query("select 1 from `Users` LIMIT 1");
-
-if($val !== FALSE)
-{
-   echo "Users exists \n";
-}
-else
-{
-    echo "Users does not exist. Creating Table... \n";
-    $sql = "CREATE TABLE Users (
-        userid INT(6) AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(30) NOT NULL,
-        passcode VARCHAR(30) NOT NULL,
-        email VARCHAR(50),
-        firstname VARCHAR(30) NOT NULL,
-        lastname VARCHAR(30) NOT NULL,
-        apikey VARCHAR(50) NOT NULL
-        )";
-        
-        if ($conn->query($sql) === TRUE) {
-          echo "Users created successfully";
-        } else {
-          echo "Error creating table: " . $conn->error;
-        }
-}
 
 
 ?>

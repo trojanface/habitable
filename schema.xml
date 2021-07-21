@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name='habitable' defaultIdMethod='native'>
+  <table name="Users" phpName="Users">
+    <column name="userid" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="username" type="varchar" size="255" required="true" />
+    <column name="password" type="varchar" size="255" required="true" />
+    <column name="email" type="varchar" size="255" required="true" />
+    <column name="firstname" type="varchar" size="255" required="true" />
+    <column name="lastname" type="varchar" size="255" required="true" />
+    <column name="dob" type="varchar" size="255" required="true" />
+    <column name="datejoined" type="date" required="true" />
+    <column name="lastlogin" type="date"  required="true" />
+    <column name="apikey" type="varchar" size="255" required="true" />
+
+  </table>
+  <table name="Habits" phpName="Habits">
+    <column name="habitid" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="userid" type="integer" required="true" />
+    <foreign-key foreignTable="Users" phpName="Users" refPhpName="Users">
+      <reference local="userid" foreign="userid"/>
+    </foreign-key>
+    <column name="name" type="varchar" size="255" required="true" />
+    <column name="effect" type="varchar" size="255" required="true" />
+    <column name="authentication" type="varchar" size="255" required="true" />
+    <column name="lastcompleted" type="date"  required="true" />
+    <column name="longeststreak" type="integer" required="true" />
+    <column name="currentstreak" type="integer" required="true" />
+
+  </table>
+  <table name="Condition_Time" phpName="Condition_Time">
+    <column name="conditiontimeid" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="habitid" type="integer" required="true" />
+    <foreign-key foreignTable="Habits" phpName="Habits" refPhpName="Habits">
+      <reference local="habitid" foreign="habitid"/>
+    </foreign-key>
+    <column name="between_at" type="varchar" size="255" required="true" />
+    <column name="firsttime" type="varchar" size="255" required="true" />
+    <column name="secondtime" type="varchar" size="255" required="true" />
+    <column name="sunday" type="boolean" required="true" />
+    <column name="monday" type="boolean" required="true" />
+    <column name="tuesday" type="boolean" required="true" />
+    <column name="wednesday" type="boolean" required="true" />
+    <column name="thursday" type="boolean" required="true" />
+    <column name="friday" type="boolean" required="true" />
+    <column name="saturday" type="boolean" required="true" />
+
+  </table>
+    <table name="Condition_Location" phpName="Condition_Location">
+    <column name="conditionlocationid" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="habitid" type="integer" required="true" />
+    <foreign-key foreignTable="Habits" phpName="Habits" refPhpName="Habits">
+      <reference local="habitid" foreign="habitid"/>
+    </foreign-key>
+    <column name="long" type="integer" required="true" />
+    <column name="lat" type="integer"  required="true" />
+    <column name="radius" type="integer"  required="true" />
+  </table>
+</database>

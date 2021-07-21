@@ -4,6 +4,10 @@
 **/node_modules
 **/.pnp
 .pnp.js
+**/vendor
+# server side
+build.properties
+runtime-conf.xml
 
 # testing
 **/coverage
